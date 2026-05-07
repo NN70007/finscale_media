@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Finscale — La voix de la finance européenne</title>
+<meta name="description" content="Finscale. Podcast & newsletter — finance européenne. Marchés, deals, transformation, VC, FinTech, régulation. Bilingue FR / EN. From Within by Finscale : leadership conscient." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#E8003D;
+    --red-deep:#A30028;
+    --gold:#E8003D;
+    --ink:#0A0A0C;
+    --ink-2:#16161A;
+    --paper:#FFFFFF;
+    --cream:#F4F1EC;
+    --cream-2:#EAE6DE;
+    --text-2:#3A3A40;
+    --text-3:#6E6E76;
+    --line:rgba(10,10,12,0.16);
+    --line-2:rgba(10,10,12,0.09);
+    --hairline:0.5px solid var(--line);
+    --maxw:1440px;
+    --pad-x:clamp(20px,4.4vw,80px);
+    --r-md:4px;
+    --r-lg:6px;
+    --r-pill:2px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;font-weight:400}
+  ::selection{background:var(--red);color:#fff}
+  h1,h2,h3,h4{margin:0;font-family:'IBM Plex Serif',Georgia,serif;font-weight:600;letter-spacing:-0.015em}
+  .serif{font-family:'IBM Plex Serif',Georgia,serif}
+  .sans{font-family:'IBM Plex Sans',sans-serif}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+  a{color:inherit;text-decoration:none;transition:color .2s ease}
+  img{max-width:100%;display:block}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  .container{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad-x);padding-right:var(--pad-x)}
+
+  .eyebrow{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--red)}
+  .label{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--ink)}
+  .label-muted{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--text-3)}
+  .small{font-size:13px;color:var(--text-2);line-height:1.6}
+
+  /* ============ MASTHEAD ============ */
+  .masthead{background:#fff;color:var(--text-2);border-bottom:var(--hairline)}
+  .masthead-inner{display:flex;align-items:center;justify-content:space-between;height:46px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase}
+  .masthead-inner .dot{width:5px;height:5px;border-radius:50%;background:var(--red);display:inline-block;margin-right:10px}
+  .masthead-mid{color:var(--ink);font-weight:600}
+  .masthead-mid em{font-style:normal;color:var(--red);font-family:'IBM Plex Serif',serif;font-weight:600}
+  @media (max-width:880px){.masthead-side-r{display:none}}
+
+  /* ============ NAV ============ */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(251,248,243,0.96);backdrop-filter:saturate(140%) blur(12px);border-bottom:var(--hairline)}
+  .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:100px;gap:24px}
+  .nav-left{display:flex;align-items:center;gap:32px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.04em}
+  .nav-left a:hover{color:var(--red)}
+  .nav-logo{display:flex;align-items:center;justify-content:center}
+  .nav-logo img{height:54px;width:auto}
+  .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500}
+  .nav-right > a:not(.nav-cta):hover{color:var(--red)}
+  .nav-cta{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;background:var(--red);color:#fff;border-radius:var(--r-pill);font-size:12px;letter-spacing:0.06em;border:1px solid var(--red)}
+  .nav-cta:hover{background:var(--ink);border-color:var(--ink)}
+  .nav-cta .dot{width:6px;height:6px;border-radius:50%;background:#fff}
+  .nav-cta:hover .dot{background:var(--red)}
+  .nav-burger{display:none;width:42px;height:42px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
+  .nav-burger span,.nav-burger span::before,.nav-burger span::after{display:block;width:14px;height:1.5px;background:var(--ink);border-radius:2px}
+  .nav-burger span{position:relative}
+  .nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0}
+  .nav-burger span::before{top:-5px}.nav-burger span::after{top:5px}
+  @media (max-width:1080px){
+    .nav-inner{grid-template-columns:auto 1fr auto;height:88px}
+    .nav-left{display:none}
+    .nav-right > a:not(.nav-cta){display:none}
+    .nav-burger{display:flex}
+    .nav-logo{justify-content:flex-start}
+    .nav-logo img{height:42px}
+  }
+  .menu-overlay{position:fixed;inset:0;z-index:60;background:var(--cream);transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.3,1);display:flex;flex-direction:column}
+  .menu-overlay.open{transform:translateY(0)}
+  .menu-top{display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad-x);border-bottom:var(--hairline);height:88px}
+  .menu-close{font-size:24px;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
+  .menu-list{display:flex;flex-direction:column;padding:32px var(--pad-x);gap:0}
+  .menu-list a{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(32px,7vw,52px);letter-spacing:-0.02em;padding:20px 0;border-bottom:var(--hairline);display:flex;align-items:center;justify-content:space-between}
+  .menu-list a span{color:var(--text-3);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-family:'IBM Plex Sans',sans-serif}
+
+  /* ============ READING PROGRESS BAR ============ */
+  .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:100;width:0;transition:width .1s ease-out}
+
+  /* ============ CATEGORY BAR ============ */
+  .catbar{background:var(--paper);border-bottom:var(--hairline);position:sticky;top:100px;z-index:40}
+  @media (max-width:1080px){}
+  .catbar-inner{display:flex;align-items:center;gap:0;height:46px;overflow-x:auto;scrollbar-width:none}
+  .catbar-inner::-webkit-scrollbar{display:none}
+  .catbar a{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-2);padding:0 22px;border-right:var(--hairline);height:100%;display:inline-flex;align-items:center;white-space:nowrap;transition:color .2s, background .2s}
+  .catbar a:first-child{padding-left:0}
+  .catbar a.live{color:var(--red);position:relative}
+  .catbar a.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:10px;animation:pulse 1.6s ease-in-out infinite}
+  .catbar a:hover{color:var(--ink)}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;background:var(--cream);color:var(--ink);padding:0;overflow:hidden;min-height:720px;display:flex;align-items:flex-end;border-bottom:var(--hairline)}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.18;filter:saturate(0.7)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,248,243,0.95) 0%,rgba(251,248,243,0.75) 50%,rgba(251,248,243,0.4) 100%)}
+  .hero .container{position:relative;z-index:2;width:100%;padding-top:80px;padding-bottom:64px}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:end}
+  .hero-edition{display:inline-flex;align-items:center;gap:18px;padding:10px 20px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3);font-weight:600}
+  .hero-edition strong{color:var(--ink);font-weight:700}
+  .hero-edition .pip{width:6px;height:6px;border-radius:50%;background:var(--red)}
+  .hero-title{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:clamp(46px,6.2vw,96px);line-height:1.02;letter-spacing:-0.028em;margin-top:28px;color:var(--ink);text-wrap:balance}
+  .hero-title em{font-style:normal;font-weight:600;color:var(--red)}
+  .hero-title .swash{font-style:normal;font-weight:600;color:var(--red)}
+  .hero-deck{margin-top:28px;font-family:'IBM Plex Sans',sans-serif;font-size:19px;line-height:1.65;color:var(--text-2);max-width:54ch;font-weight:400}
+  .hero-deck strong{color:var(--ink);font-weight:600}
+  .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:44px}
+  .btn{display:inline-flex;align-items:center;gap:12px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;padding:18px 30px;border-radius:var(--r-pill);border:1px solid transparent;letter-spacing:0.02em;transition:all .25s ease}
+  .btn .arrow{display:inline-block;transition:transform .25s ease}
+  .btn:hover .arrow{transform:translateX(5px)}
+  .btn-primary{background:var(--ink);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,0.04)}
+  .btn-primary:hover{background:var(--red);transform:translateY(-1px)}
+  .btn-ghost{color:var(--ink);border-color:var(--line);background:#fff}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .btn-link{font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink);position:relative;padding-bottom:4px}
+  .btn-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transition:background .2s}
+  .btn-link:hover{color:var(--red)} .btn-link:hover::after{background:var(--red)}
+  .hero .btn-link{color:var(--ink)} .hero .btn-link::after{background:var(--ink)}
+  .hero .btn-link:hover{color:var(--red)} .hero .btn-link:hover::after{background:var(--red)}
+  .hero .chip{background:#fff;border-color:var(--line);color:var(--ink)}
+  .hero .chip:hover{border-color:var(--ink);background:#fff}
+
+  /* ============ FEATURED EPISODE ============ */
+  .featured{padding:120px 0 0;background:#fff}
+  .featured-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff}
+  .featured-img{position:relative;aspect-ratio:4/3;background:#000;overflow:hidden}
+  .featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .featured-grid:hover .featured-img img{transform:scale(1.04)}
+  .featured-img .ftag{position:absolute;top:24px;left:24px;display:inline-flex;align-items:center;gap:10px;padding:9px 16px;background:var(--red);color:#fff;border-radius:var(--r-pill);font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase}
+  .featured-img .ftag::before{content:"★"}
+  .featured-img .play{position:absolute;bottom:24px;right:24px;width:64px;height:64px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,0.3);transition:transform .25s}
+  .featured-img .play:hover{background:var(--red);color:#fff;transform:scale(1.06)}
+  .featured-img .play svg{width:20px;height:20px;margin-left:3px}
+  .featured-body{padding:48px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .featured-cat{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--red)}
+  .featured-cat::before{content:"";width:18px;height:1px;background:var(--red)}
+  .featured-title{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(28px,3.4vw,44px);line-height:1.1;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance}
+  .featured-dek{font-size:16px;line-height:1.7;color:var(--text-2);max-width:46ch}
+  .featured-byline{display:flex;align-items:center;gap:14px;margin-top:8px;padding-top:24px;border-top:var(--hairline);font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:0.04em;color:var(--text-2)}
+  .featured-byline strong{color:var(--ink);font-weight:600}
+  .featured-byline .sep{opacity:0.4}
+  .featured-byline .avatar{width:36px;height:36px;border-radius:50%;overflow:hidden}
+  .featured-byline .avatar img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:980px){.featured-grid{grid-template-columns:1fr}.featured-body{padding:32px 28px}}
+
+  /* ============ PULL QUOTE BANNER ============ */
+  .pq-banner{padding:96px 0;background:var(--cream-2);text-align:center;border-bottom:var(--hairline)}
+  .pq-banner-inner{max-width:1000px;margin:0 auto;padding:0 var(--pad-x)}
+  .pq-banner .qmark{font-family:'IBM Plex Serif',serif;font-style:normal;font-weight:700;font-size:120px;line-height:0.4;color:var(--red);height:48px;margin-bottom:24px}
+  .pq-banner .pqt{font-family:'IBM Plex Serif',serif;font-weight:500;font-style:normal;font-size:clamp(26px,3.4vw,46px);line-height:1.25;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance}
+  .pq-banner .pqt em{font-style:normal;font-weight:500;color:var(--red)}
+  .pq-banner .pqa{margin-top:32px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3)}
+  .pq-banner .pqa strong{color:var(--ink)}
+
+  /* ============ EP BYLINE ============ */
+  .ep-byline{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--text-3);letter-spacing:0.04em;display:flex;align-items:center;gap:8px}
+  .ep-byline strong{color:var(--text-2);font-weight:600}
+  .ep-byline .sep{opacity:0.4}
+
+  .hero-meta{margin-top:48px;padding-top:32px;border-top:var(--hairline);display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:560px}
+  .hero-meta .item .v{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:42px;letter-spacing:-0.02em;color:var(--ink);line-height:1}
+  .hero-meta .item .v sup{color:var(--red);font-size:0.45em;font-weight:600;vertical-align:super;margin-left:2px;font-family:'IBM Plex Sans',sans-serif}
+  .hero-meta .item .l{font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3);margin-top:10px;font-weight:600}
+  .hero-byline{margin-top:24px;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:0.04em;color:var(--text-2)}
+  .hero-byline .by-avatar{width:34px;height:34px;border-radius:50%;overflow:hidden;border:1px solid var(--line)}
+  .hero-byline .by-avatar img{width:100%;height:100%;object-fit:cover}
+  .hero-byline strong{color:var(--ink);font-weight:600}
+  .hero-byline .sep{opacity:0.4}
+
+  /* hero right card */
+  .hero-card{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(15,15,18,0.18)}
+  .hero-card-frame{position:relative;aspect-ratio:16/10;background:#000}
+  .hero-card-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .hero-card-body{padding:24px 26px 26px}
+  .hero-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .hero-card-head .live{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red)}
+  .hero-card-head .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(232,0,61,0.16);animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(232,0,61,0)}}
+  .hero-card-title{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:22px;line-height:1.3;letter-spacing:-0.01em;color:var(--ink);text-wrap:balance}
+  .hero-card-meta{margin-top:10px;font-size:13px;color:var(--text-2)}
+  .hero-card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:var(--hairline)}
+  .platforms{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);padding:9px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
+  .chip:hover{border-color:var(--ink)}
+  .chip-dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+  .badge{display:inline-flex;align-items:center;font-family:'IBM Plex Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;padding:6px 11px;border-radius:var(--r-pill);color:#fff;background:var(--ink);white-space:nowrap}
+  .badge-fr{background:var(--red)}
+  .badge-en{background:var(--ink)}
+  .badge-fw{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+
+  @media (max-width:1080px){
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .hero{padding:56px 0 72px}
+  }
+
+  /* ============ COOKIE BANNER ============ */
+  .cookie{position:fixed;left:24px;right:24px;bottom:24px;z-index:200;background:#1a1614;color:#f4ede1;border:1px solid rgba(255,255,255,0.08);box-shadow:0 24px 60px rgba(0,0,0,0.35);padding:22px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;max-width:1240px;margin:0 auto;transform:translateY(120%);transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1);font-family:'IBM Plex Sans',sans-serif}
+  .cookie.show{transform:translateY(0)}
+  .cookie-icon{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-weight:700;font-size:18px;flex-shrink:0}
+  .cookie-body{flex:1;min-width:280px}
+  .cookie-title{font-size:13px;font-weight:700;letter-spacing:0.04em;margin-bottom:4px;color:#fff}
+  .cookie-text{font-size:13px;line-height:1.55;color:rgba(244,237,225,0.7)}
+  .cookie-text a{color:#fff;border-bottom:1px solid rgba(255,255,255,0.4)}
+  .cookie-actions{display:flex;gap:10px;flex-shrink:0}
+  .cookie-btn{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:11px 18px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:#f4ede1;cursor:pointer;transition:all 0.2s}
+  .cookie-btn:hover{border-color:rgba(255,255,255,0.5)}
+  .cookie-btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+  .cookie-btn.primary:hover{background:#c00033;border-color:#c00033}
+  @media (max-width:720px){.cookie{left:12px;right:12px;bottom:12px;padding:18px;gap:16px}.cookie-actions{width:100%}.cookie-btn{flex:1}}
+
+  /* ============ MARQUEE ============ */
+  .marquee{background:var(--red);color:#fff;overflow:hidden}
+  .marquee-inner{display:flex;align-items:center;height:52px}
+  .marquee-tag{flex:0 0 auto;padding:0 26px;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:#fff;background:var(--red);border-right:1px solid rgba(255,255,255,0.3);height:100%;display:flex;align-items:center;position:relative;z-index:2;box-shadow:8px 0 12px -4px var(--red)}
+  .marquee-track-wrap{flex:1;overflow:hidden;position:relative;mask-image:linear-gradient(to right,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%)}
+  .marquee-track{display:flex;gap:56px;width:max-content;animation:tick 44s linear infinite;will-change:transform;padding-left:36px}
+  .marquee-item{font-family:'IBM Plex Sans',sans-serif;font-style:normal;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;font-size:13px;color:rgba(255,255,255,0.92);white-space:nowrap;display:inline-flex;align-items:center;gap:56px;font-weight:500}
+  .marquee-item::after{content:"✦";color:var(--red);margin-left:-28px;font-size:11px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============ STATS ============ */
+  .stats{background:#fff;border-bottom:var(--hairline)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:60px var(--pad-x);border-left:var(--hairline);position:relative;text-align:center}
+  .stat:first-child{border-left:0}
+  .stat-num{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(48px,5.2vw,84px);line-height:1;letter-spacing:-0.03em;color:var(--ink)}
+  .stat-num sup{font-size:0.4em;color:var(--red);vertical-align:super;font-weight:600;margin-left:3px;font-family:'IBM Plex Sans',sans-serif}
+  .stat-label{margin-top:18px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3);line-height:1.5}
+  @media (max-width: 880px){
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .stat{padding:40px var(--pad-x);border-top:var(--hairline)}
+    .stat:nth-child(odd){border-left:0}
+    .stat:nth-child(-n+2){border-top:0}
+  }
+
+  /* ============ SECTION ============ */
+  .section{padding:140px 0;border-bottom:var(--hairline);background:var(--cream)}
+  .section.on-paper{background:#fff}
+  .section.tight{padding:96px 0}
+  .section-num{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:14px}
+  .section-num strong{color:var(--red);font-weight:800}
+  .section-num::after{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+  .section-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;margin:24px 0 64px;padding-bottom:32px;border-bottom:var(--hairline)}
+  .section-head h2{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(40px,5.2vw,80px);letter-spacing:-0.025em;line-height:1.0;color:var(--ink);text-wrap:balance}
+  .section-head h2 em{font-style:normal;color:var(--red);font-weight:600}
+  .section-head h2 .gold{font-style:normal;color:var(--red);font-weight:600}
+  .section-head .head-r{font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink);align-self:end;display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1px solid var(--ink);border-radius:var(--r-pill);background:#fff}
+  .section-head .head-r:hover{background:var(--ink);color:#fff}
+  @media (max-width: 880px){
+    .section-head{grid-template-columns:1fr}
+    .section-head .head-r{justify-self:start}
+    .section{padding:96px 0}
+  }
+
+  /* ============ EPISODES ============ */
+  .ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .ep-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease}
+  .ep-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(15,15,18,0.18)}
+  .ep-thumb{position:relative;aspect-ratio:16/10;background:#000;overflow:hidden}
+  .ep-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+  .ep-card:hover .ep-thumb img{transform:scale(1.05)}
+  .ep-corner{position:absolute;top:14px;left:14px}
+  .ep-thumb .play{position:absolute;bottom:14px;right:14px;width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,0.25);transition:transform .25s, background .25s, color .25s}
+  .ep-thumb .play:hover{background:var(--red);color:#fff;transform:scale(1.06)}
+  .ep-thumb .play svg{width:16px;height:16px;margin-left:3px}
+  .ep-body{padding:26px 28px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .ep-num{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--red)}
+  .ep-title{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:24px;line-height:1.25;letter-spacing:-0.015em;color:var(--ink);text-wrap:balance}
+  .ep-guest{font-size:14px;color:var(--text-2);line-height:1.6}
+  .ep-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:var(--hairline)}
+  .ep-listen{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;color:var(--ink);letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px}
+  .ep-listen:hover{color:var(--red)}
+  @media (max-width: 880px){.ep-grid{grid-template-columns:1fr}}
+
+  /* ============ TWO-COL ============ */
+  .twocol{display:grid;grid-template-columns:280px 1fr;gap:80px}
+  .twocol .col-label{padding-top:6px;position:sticky;top:80px;align-self:start}
+  .twocol .col-label .label{display:block}
+  .twocol .col-label .sub{margin-top:16px;font-size:14px;color:var(--text-2);line-height:1.6;max-width:24ch}
+  @media (max-width: 880px){
+    .twocol{grid-template-columns:1fr;gap:24px}
+    .twocol .col-label{position:static}
+  }
+
+  /* ============ FROM WITHIN ============ */
+  .fw{background:var(--cream-2);color:var(--ink);padding:160px 0;position:relative;overflow:hidden;border-top:var(--hairline);border-bottom:var(--hairline)}
+  .fw::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:transparent}
+  .fw .eyebrow{color:var(--red)}
+  .fw .eyebrow::before{background:var(--red)}
+  .fw .label{color:var(--text-2)}
+  .fw-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center;position:relative;z-index:1}
+  .fw-bg-letter{position:absolute;font-family:'IBM Plex Serif',serif;font-style:normal;font-weight:700;font-size:clamp(420px,44vw,780px);line-height:0.7;color:rgba(184,147,90,0.05);right:-3%;top:-12%;pointer-events:none;letter-spacing:-0.06em;z-index:0}
+  .fw-section-num{color:var(--text-3)}
+  .fw-section-num strong{color:var(--red)}
+  .fw-section-num::after{background:var(--line)}
+  .fw-title{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(40px,5.2vw,76px);line-height:1.05;letter-spacing:-0.025em;color:var(--ink);text-wrap:balance;margin-top:32px}
+  .fw-title em{font-style:normal;color:var(--red);font-weight:600}
+  .fw-desc{margin-top:36px;font-family:'IBM Plex Sans',sans-serif;font-size:17px;line-height:1.75;color:var(--text-2);max-width:50ch}
+  .fw-actions{margin-top:48px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+  .fw .btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fw .btn-primary:hover{background:var(--red);color:#fff;border-color:var(--red)}
+  .fw .btn-link{color:var(--ink)}
+  .fw .btn-link::after{background:var(--ink)}
+  .fw .btn-link:hover{color:var(--red)}.fw .btn-link:hover::after{background:var(--red)}
+  .fw-embeds{display:flex;flex-direction:column;gap:20px}
+  .fw-embed-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:16/10;background:#000}
+  .fw-embed-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .fw-spotify{width:100%;height:152px;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+  @media (max-width: 980px){
+    .fw{padding:100px 0}
+    .fw-grid{grid-template-columns:1fr;gap:56px}
+  }
+
+  /* ============ MANIFESTO ============ */
+  .manifesto{background:var(--cream-2);padding:160px 0;position:relative;border-bottom:var(--hairline)}
+  .manifesto-inner{max-width:1100px;margin:0 auto;padding:0 var(--pad-x);text-align:center;position:relative}
+  .manifesto-mark{font-family:'IBM Plex Serif',serif;font-style:normal;font-weight:700;font-size:200px;line-height:0.5;color:var(--red);height:80px;margin-bottom:32px}
+  .manifesto-text{font-family:'IBM Plex Serif',serif;font-weight:500;font-style:normal;font-size:clamp(32px,4vw,60px);line-height:1.2;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance}
+  .manifesto-text em{font-style:normal;font-weight:500;color:var(--red)}
+  .manifesto-attr{margin-top:48px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--text-3);display:inline-flex;align-items:center;gap:14px}
+  .manifesto-attr::before,.manifesto-attr::after{content:"";width:32px;height:1px;background:var(--text-3)}
+
+  /* ============ SOLENNE ============ */
+  .solenne-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:90px;align-items:center}
+  .solenne-photo{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--cream-2)}
+  .solenne-photo img{width:100%;height:100%;object-fit:cover}
+  .solenne-photo .caption{position:absolute;left:0;right:0;bottom:0;padding:24px 26px;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.85) 100%);color:#fff}
+  .solenne-photo .caption .n{font-family:'IBM Plex Serif',serif;font-size:24px;font-weight:500;letter-spacing:-0.01em;line-height:1.2}
+  .solenne-photo .caption .r{margin-top:6px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.85);font-weight:600}
+  .solenne-content{padding-top:0}
+  .pull-quote{font-family:'IBM Plex Serif',serif;font-weight:500;font-style:normal;font-size:clamp(30px,3.6vw,52px);line-height:1.15;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance;position:relative}
+  .pull-quote::before{content:"“";color:var(--red);font-size:1.4em;line-height:0.4;display:inline-block;margin-right:0.05em;vertical-align:-0.05em}
+  .pull-quote::after{content:"”";color:var(--red)}
+  .bio{margin-top:40px;font-family:'IBM Plex Sans',sans-serif;font-size:15.5px;line-height:1.8;color:var(--text-2)}
+  .bio p{margin:0 0 16px}
+  .bio strong{color:var(--ink);font-weight:600}
+  .bio .dropcap::first-letter{font-family:'IBM Plex Serif',serif;font-size:4em;font-weight:700;line-height:0.8;float:left;margin:10px 14px 0 -2px;color:var(--red);font-style:normal}
+  .credentials{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:#fff}
+  .cred{padding:24px 22px;border-right:var(--hairline)}
+  .cred:last-child{border-right:0}
+  .cred .t{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:16px;color:var(--ink);letter-spacing:-0.01em;line-height:1.3}
+  .cred .l{margin-top:8px;font-family:'IBM Plex Sans',sans-serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3);font-weight:700}
+  @media (max-width: 980px){
+    .solenne-grid{grid-template-columns:1fr;gap:48px}
+    .credentials{grid-template-columns:1fr}
+    .cred{border-right:0;border-bottom:var(--hairline)}.cred:last-child{border-bottom:0}
+  }
+
+  /* ============ NEWSLETTER ============ */
+  .newsletter{background:linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%)}
+  .nl-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:center}
+  .nl-grid h2{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(40px,5vw,72px);line-height:1.0;letter-spacing:-0.025em;color:var(--ink);text-wrap:balance}
+  .nl-grid h2 em{font-style:normal;color:var(--red);font-weight:600}
+  .nl-grid p{margin-top:28px;font-size:17px;line-height:1.7;color:var(--text-2);max-width:46ch}
+  .nl-stats{display:flex;gap:40px;margin-top:40px;padding-top:32px;border-top:var(--hairline)}
+  .nl-stats .item .v{font-family:'IBM Plex Serif',serif;font-size:42px;color:var(--ink);letter-spacing:-0.02em;font-weight:500;line-height:1}
+  .nl-stats .item .v sup{color:var(--red);font-size:0.45em;font-weight:600;font-family:'IBM Plex Sans',sans-serif}
+  .nl-stats .item .l{font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-3);margin-top:8px;font-weight:700}
+  .nl-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:32px;position:relative}
+  .nl-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .nl-card-head .l{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink)}
+  .nl-card-head .badge-week{font-family:'JetBrains Mono',monospace;font-style:normal;font-weight:500;font-size:14px;color:var(--text-2)}
+  .nl-iframe{width:100%;height:170px;border:1px solid var(--line);border-radius:var(--r-md);background:#fff}
+  @media (max-width: 980px){
+    .nl-grid{grid-template-columns:1fr;gap:48px}
+  }
+
+  /* ============ PARTENARIATS ============ */
+  .partners-intro{font-family:'IBM Plex Serif',serif;font-weight:500;font-style:normal;font-size:clamp(26px,2.8vw,40px);line-height:1.3;letter-spacing:-0.02em;color:var(--ink);max-width:64ch;text-wrap:balance}
+  .partners-intro em{font-style:normal;font-weight:500;color:var(--red)}
+  .formats{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+  .format{padding:36px 32px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);position:relative;transition:transform .35s, box-shadow .35s}
+  .format:hover{transform:translateY(-3px);box-shadow:0 20px 40px -20px rgba(15,15,18,0.16)}
+  .format .fnum{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.26em;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .format .fnum::after{content:"";flex:1;height:1px;background:var(--line)}
+  .format h4{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:28px;color:var(--ink);letter-spacing:-0.02em;line-height:1.2}
+  .format p{margin-top:16px;font-size:15px;line-height:1.7;color:var(--text-2)}
+  .partners-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;margin-top:56px;padding-top:40px;border-top:var(--hairline)}
+  @media (max-width: 760px){
+    .formats{grid-template-columns:1fr}
+  }
+
+  /* ============ LOGO BAND ============ */
+  .logo-band{padding:64px 0;background:var(--cream);border-bottom:var(--hairline)}
+  .logo-band-head{text-align:center;margin-bottom:40px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;justify-content:center;gap:18px}
+  .logo-band-head::before,.logo-band-head::after{content:"";width:40px;height:1px;background:var(--text-3);opacity:0.5}
+  .logo-band-inner{display:grid;grid-template-columns:repeat(5,1fr);max-width:1200px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+  .logo-cell{padding:28px 18px;border-right:var(--hairline);border-bottom:var(--hairline);text-align:center;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;font-style:normal;letter-spacing:0.04em;text-transform:uppercase;letter-spacing:-0.005em;color:var(--ink);transition:background .25s}
+  .logo-cell:hover{background:var(--cream);color:var(--red)}
+  .logo-cell:nth-child(5n){border-right:0}
+  .logo-cell:nth-last-child(-n+5){border-bottom:0}
+  @media (max-width:880px){
+    .logo-band-inner{grid-template-columns:repeat(2,1fr)}
+    .logo-cell{border-right:var(--hairline)!important;border-bottom:var(--hairline)!important}
+    .logo-cell:nth-child(2n){border-right:0!important}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--cream-2);color:var(--text-2);padding:96px 0 40px;position:relative;border-top:var(--hairline)}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding-bottom:64px;border-bottom:var(--hairline)}
+  .foot-brand{display:flex;flex-direction:column;gap:24px}
+  .foot-brand .flogo img{height:42px;width:auto}
+  .foot-brand h3{font-family:'IBM Plex Serif',serif;font-weight:600;font-style:normal;font-size:32px;letter-spacing:-0.015em;color:var(--ink);line-height:1.2;text-wrap:balance}
+  .foot-brand h3 em{color:var(--red);font-weight:600;font-style:normal}
+  .foot-brand p{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.7;color:var(--text-2);max-width:36ch}
+  .foot-col h4{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink);margin-bottom:22px}
+  .foot-col a{display:block;font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:var(--text-2);padding:7px 0}
+  .foot-col a:hover{color:var(--red)}
+  .foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:36px}
+  .foot-bottom .copy{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--text-3);letter-spacing:0.04em}
+  .foot-bottom .legal{display:flex;gap:28px}
+  .foot-bottom .legal a{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--text-3)}
+  .foot-bottom .legal a:hover{color:var(--ink)}
+  @media (max-width:980px){.foot-top{grid-template-columns:1fr 1fr;gap:40px}}
+  @media (max-width:560px){.foot-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============== MASTHEAD ============== -->
+<div class="masthead">
+  <div class="container masthead-inner">
+    <span><span class="dot"></span>Jeudi 7 mai 2026 · Vol. VI</span>
+    <span class="masthead-mid">Finscale — La voix <em>de la finance européenne</em></span>
+    <span class="masthead-side-r">Luxembourg · Paris · Genève</span>
+  </div>
+</div>
+
+<!-- ============== NAV ============== -->
+<header class="nav">
+  <div class="container nav-inner">
+    <nav class="nav-left" aria-label="Sections">
+      <a href="#finscale">Finscale</a>
+      <a href="#fromwithin">From Within</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#solenne">À propos</a>
+    </nav>
+    <a class="nav-logo" href="#top" aria-label="Finscale">
+      <img src="assets/finscale-logo.png" alt="Finscale" />
+    </a>
+    <div class="nav-right">
+      <a href="https://finscale.substack.com" target="_blank" rel="noopener">FR / EN</a>
+      <a class="nav-cta" href="#partenariats"><span class="dot"></span>Partenariats</a>
+      <button class="nav-burger" aria-label="Menu" onclick="document.getElementById('menu').classList.add('open')"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============== READING PROGRESS ============== -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============== CATEGORY BAR ============== -->
+<div class="catbar">
+  <div class="container catbar-inner">
+    <a href="#finscale" class="live">À l'affiche</a>
+    <a href="#finscale">Finance</a>
+    <a href="#finscale">FinTech</a>
+    <a href="#finscale">Deals</a>
+    <a href="#finscale">Régulation</a>
+    <a href="#fromwithin">Leadership</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#solenne">Studio</a>
+  </div>
+</div>
+
+<!-- ============== MOBILE MENU ============== -->
+<div class="menu-overlay" id="menu" aria-hidden="true">
+  <div class="menu-top">
+    <img src="assets/finscale-logo.png" alt="Finscale" style="height:32px" />
+    <button class="menu-close" aria-label="Fermer" onclick="document.getElementById('menu').classList.remove('open')">×</button>
+  </div>
+  <nav class="menu-list">
+    <a href="#finscale" onclick="document.getElementById('menu').classList.remove('open')">Finscale<span>01</span></a>
+    <a href="#fromwithin" onclick="document.getElementById('menu').classList.remove('open')">From Within<span>02</span></a>
+    <a href="#newsletter" onclick="document.getElementById('menu').classList.remove('open')">Newsletter<span>03</span></a>
+    <a href="#solenne" onclick="document.getElementById('menu').classList.remove('open')">À propos<span>04</span></a>
+    <a href="#partenariats" onclick="document.getElementById('menu').classList.remove('open')">Partenariats<span>05</span></a>
+  </nav>
+</div>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="assets/solenne.jpg" alt="" />
+  </div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-edition">
+          <span class="pip"></span>
+          <span><strong>Édition</strong> N° 348</span>
+          <span style="opacity:0.4">·</span>
+          <span>Bilingue FR / EN</span>
+          <span style="opacity:0.4">·</span>
+          <span>Depuis 2020</span>
+        </div>
+        <h1 class="hero-title">La finance européenne <em>sans filtre.</em><br/>Conversations de décideurs, hebdo.</h1>
+        <p class="hero-deck">Marchés, deals, M&A, VC, FinTech, régulation. <strong>Le podcast & la newsletter de référence</strong> pour les pros de la finance — bilingue FR / EN, sans intermédiaire.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.youtube.com/watch?v=3F4gae2ifTs" target="_blank" rel="noopener">Écouter le dernier épisode <span class="arrow">→</span></a>
+          <a class="btn-link" href="#newsletter">S'abonner à la newsletter</a>
+        </div>
+        <div class="platforms" style="margin-top:32px">
+          <a class="chip" href="https://open.spotify.com/show/4W6JPoEMfHp3v7V03OBdYt" target="_blank" rel="noopener"><span class="chip-dot"></span>Spotify</a>
+          <a class="chip" href="https://podcasts.apple.com/fr/podcast/finscale/id1510937896" target="_blank" rel="noopener"><span class="chip-dot"></span>Apple Podcasts</a>
+          <a class="chip" href="https://www.youtube.com/@finscale" target="_blank" rel="noopener"><span class="chip-dot"></span>YouTube</a>
+        </div>
+        <div class="hero-meta">
+          <div class="item"><div class="v">350<sup>+</sup></div><div class="l">Épisodes</div></div>
+          <div class="item"><div class="v">500K<sup>+</sup></div><div class="l">Écoutes</div></div>
+          <div class="item"><div class="v">45<sup>%</sup></div><div class="l">Open rate</div></div>
+        </div>
+        <div class="hero-byline">
+          <div class="by-avatar"><img src="assets/solenne.jpg" alt="" /></div>
+          <span>Par <strong>Solenne Niedercorn</strong></span>
+          <span class="sep">·</span>
+          <span>Luxembourg</span>
+          <span class="sep">·</span>
+          <span>Mis à jour hebdomadairement</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-frame">
+            <iframe src="https://www.youtube.com/embed/3F4gae2ifTs" title="Dernier épisode Finscale" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-card-head">
+              <span class="label">À l'affiche · Finscale FR</span>
+              <span class="live">Nouveau</span>
+            </div>
+            <h3 class="hero-card-title">Conversation de fond avec un décideur de la finance européenne.</h3>
+            <p class="hero-card-meta">Solenne Niedercorn · 52 min · Studio Luxembourg</p>
+            <div class="hero-card-foot">
+              <span class="badge badge-fr">FR · Édition N° 348</span>
+              <a class="ep-listen" href="https://www.youtube.com/watch?v=3F4gae2ifTs" target="_blank" rel="noopener">Écouter →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MARQUEE ============== -->
+<div class="marquee" aria-label="Partenaires">
+  <div class="marquee-inner">
+    <div class="marquee-tag">Ils nous écoutent</div>
+    <div class="marquee-track-wrap">
+      <div class="marquee-track">
+        <div class="marquee-item">EY<span></span>Revolut Business<span></span>La Banque Postale<span></span>Samsung<span></span>Supervizor<span></span>LuxHub<span></span>Pennylane<span></span>6 Monks<span></span>October</div>
+        <div class="marquee-item">EY<span></span>Revolut Business<span></span>La Banque Postale<span></span>Samsung<span></span>Supervizor<span></span>LuxHub<span></span>Pennylane<span></span>6 Monks<span></span>October</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== STATS ============== -->
+<section class="stats" aria-label="Statistiques Finscale">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">350<sup>+</sup></div><div class="stat-label">Épisodes publiés</div></div>
+    <div class="stat"><div class="stat-num">500K<sup>+</sup></div><div class="stat-label">Écoutes & visionnages</div></div>
+    <div class="stat"><div class="stat-num">45<sup>%</sup></div><div class="stat-label">Open rate newsletter</div></div>
+    <div class="stat"><div class="stat-num">50<sup>%</sup></div><div class="stat-label">Décideurs seniors</div></div>
+  </div>
+</section>
+
+<!-- ============== FEATURED EPISODE ============== -->
+<section class="featured">
+  <div class="container">
+    <div class="section-num" style="margin-bottom:32px"><strong>★</strong> À la une cette semaine — Featured</div>
+    <article class="featured-grid">
+      <a class="featured-img" href="https://www.youtube.com/watch?v=3F4gae2ifTs" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/3F4gae2ifTs/maxresdefault.jpg" alt="" />
+        <span class="ftag">Featured</span>
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </a>
+      <div class="featured-body">
+        <div class="featured-cat">Finscale FR · Épisode N° 348</div>
+        <h3 class="featured-title">La conversation que toute la finance européenne attendait.</h3>
+        <p class="featured-dek">Un dirigeant de tout premier plan se livre sans filtre sur l'état des marchés, les deals qui se préparent, et la transformation silencieuse de la banque européenne. 52 minutes de fond, sans posture.</p>
+        <div class="featured-byline">
+          <div class="avatar"><img src="assets/solenne.jpg" alt="" /></div>
+          <span>Par <strong>Solenne Niedercorn</strong></span>
+          <span class="sep">·</span>
+          <span>7 mai 2026</span>
+          <span class="sep">·</span>
+          <span>52 min d'écoute</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== PULL QUOTE BANNER ============== -->
+<section class="pq-banner">
+  <div class="pq-banner-inner">
+    <div class="qmark">“</div>
+    <p class="pqt">On parle aux décideurs comme on devrait toujours leur parler — <em>en respectant leur temps, leur intelligence, et la complexité de ce qu'ils font.</em></p>
+    <div class="pqa">— <strong>Solenne Niedercorn</strong>, Fondatrice de Finscale</div>
+  </div>
+</section>
+
+<!-- ============== EPISODES ============== -->
+<section class="section on-paper" id="finscale">
+  <div class="container">
+    <div class="section-num"><strong>I.</strong> Épisodes récents — Mis à jour hebdomadairement</div>
+    <div class="section-head">
+      <div class="head-l">
+        <h2>Conversations de fond.<br/>Zéro <em>posture</em>.</h2>
+      </div>
+      <a class="head-r" href="https://www.youtube.com/@finscale" target="_blank" rel="noopener">Voir tous les épisodes →</a>
+    </div>
+    <div class="ep-grid">
+      <article class="ep-card">
+        <div class="ep-thumb">
+          <img src="https://img.youtube.com/vi/3F4gae2ifTs/mqdefault.jpg" alt="" />
+          <div class="ep-corner"><span class="badge badge-fr">FR</span></div>
+          <a class="play" href="https://www.youtube.com/watch?v=3F4gae2ifTs" target="_blank" rel="noopener" aria-label="Écouter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </a>
+        </div>
+        <div class="ep-body">
+          <div class="ep-num">N° 348 · Finscale FR</div>
+          <h3 class="ep-title">Conversation de fond sur la finance européenne.</h3>
+          <p class="ep-guest">Avec un dirigeant invité — banque, deals, régulation. <strong>52 min.</strong></p>
+          <div class="ep-byline" style="margin-top:4px"><span>Par <strong>Solenne Niedercorn</strong></span><span class="sep">·</span><span>7 mai 2026</span></div>
+          <div class="ep-foot">
+            <span class="label-muted">52 min</span>
+            <a class="ep-listen" href="https://www.youtube.com/watch?v=3F4gae2ifTs" target="_blank" rel="noopener">Écouter →</a>
+          </div>
+        </div>
+      </article>
+      <article class="ep-card">
+        <div class="ep-thumb">
+          <img src="https://img.youtube.com/vi/-jKS2xDOJyQ/mqdefault.jpg" alt="" />
+          <div class="ep-corner"><span class="badge badge-en">EN</span></div>
+          <a class="play" href="https://www.youtube.com/watch?v=-jKS2xDOJyQ" target="_blank" rel="noopener" aria-label="Listen">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </a>
+        </div>
+        <div class="ep-body">
+          <div class="ep-num">N° 347 · Finscale in English</div>
+          <h3 class="ep-title">The Talent Unicorn doesn't exist.</h3>
+          <p class="ep-guest">With Anne Lucas, founding partner of Alta. <strong>48 min.</strong></p>
+          <div class="ep-byline" style="margin-top:4px"><span>By <strong>Solenne Niedercorn</strong></span><span class="sep">·</span><span>30 Apr 2026</span></div>
+          <div class="ep-foot">
+            <span class="label-muted">48 min</span>
+          <div class="ep-foot">
+            <span class="label-muted">30 avril 2026</span>
+            <a class="ep-listen" href="https://www.youtube.com/watch?v=-jKS2xDOJyQ" target="_blank" rel="noopener">Listen →</a>
+          </div>
+        </div>
+      </article>
+      <article class="ep-card">
+        <div class="ep-thumb">
+          <img src="https://img.youtube.com/vi/iMZi0syoko4/mqdefault.jpg" alt="" />
+          <div class="ep-corner"><span class="badge badge-fr">FR</span></div>
+          <a class="play" href="https://www.youtube.com/watch?v=iMZi0syoko4" target="_blank" rel="noopener" aria-label="Écouter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </a>
+        </div>
+        <div class="ep-body">
+          <div class="ep-num">From Within</div>
+          <h3 class="ep-title">Le tabou des véritables transformations en entreprise.</h3>
+          <p class="ep-guest">Avec Kamilex — leadership, transition, gouvernance. <strong>1h 12.</strong></p>
+          <div class="ep-byline" style="margin-top:4px"><span>Par <strong>Solenne Niedercorn</strong></span><span class="sep">·</span><span>23 avril 2026</span></div>
+          <div class="ep-foot">
+            <span class="label-muted">1h 12</span>
+            <a class="ep-listen" href="https://www.youtube.com/watch?v=iMZi0syoko4" target="_blank" rel="noopener">Écouter →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="twocol" style="margin-top:96px;padding-top:56px;border-top:var(--hairline)">
+      <div class="col-label">
+        <span class="label">Écouter sur Spotify</span>
+        <p class="sub">Le catalogue complet Finscale FR & ENG, mis à jour chaque semaine.</p>
+      </div>
+      <div>
+        <iframe style="border-radius:var(--r-md);border:1px solid var(--line);width:100%;height:152px" src="https://open.spotify.com/embed/show/4W6JPoEMfHp3v7V03OBdYt?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify Finscale"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FROM WITHIN ============== -->
+<section class="fw" id="fromwithin">
+  <div class="container">
+    <div class="fw-bg-letter">F</div>
+    <div class="fw-grid">
+      <div>
+        <div class="section-num fw-section-num"><strong>II.</strong> A separate show · Same channel</div>
+        <span class="eyebrow" style="margin-top:18px;display:inline-flex">From Within by Finscale</span>
+        <h2 class="fw-title">Et si le futur du business ne se jouait pas seulement dans la croissance… <em>mais dans la profondeur ?</em></h2>
+        <p class="fw-desc">From Within explore la transformation intérieure des leaders, des équipes et des organisations. Leadership conscient, transitions profondes, gouvernance incarnée. Un podcast autonome, distribué sur le même canal.</p>
+        <div class="fw-actions">
+          <a class="btn btn-primary" href="https://www.youtube.com/watch?v=9bN8cyvCEZM" target="_blank" rel="noopener">Découvrir From Within <span class="arrow">→</span></a>
+          <a class="btn-link" href="https://open.spotify.com/show/3pwB3Omovn8b1tzS9qP3qP" target="_blank" rel="noopener">Show Spotify</a>
+        </div>
+      </div>
+      <div class="fw-embeds">
+        <div class="fw-embed-frame">
+          <iframe src="https://www.youtube.com/embed/9bN8cyvCEZM" title="From Within by Finscale" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <iframe class="fw-spotify" src="https://open.spotify.com/embed/show/3pwB3Omovn8b1tzS9qP3qP?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify From Within"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MANIFESTO ============== -->
+<section class="manifesto" aria-label="Manifeste">
+  <div class="manifesto-inner">
+    <div class="manifesto-mark">“</div>
+    <p class="manifesto-text">Une audience que vous ne pouvez pas acheter ailleurs.<br/>Elle <em>n'existe pas</em> sous cette forme.</p>
+    <div class="manifesto-attr">Finscale · Manifeste éditorial</div>
+  </div>
+</section>
+
+<!-- ============== SOLENNE ============== -->
+<section class="section on-paper" id="solenne">
+  <div class="container">
+    <div class="section-num"><strong>III.</strong> La fondatrice — Portrait</div>
+    <div class="section-head" style="border-bottom:0;padding-bottom:0;margin-bottom:72px">
+      <div class="head-l">
+        <h2>Solenne Niedercorn<span class="red">.</span></h2>
+      </div>
+    </div>
+    <div class="solenne-grid">
+      <div class="solenne-photo">
+        <img src="assets/solenne.jpg" alt="Solenne Niedercorn" />
+        <div class="caption">
+          <div class="n">Solenne Niedercorn</div>
+          <div class="r">Fondatrice · Studio Finscale, Luxembourg</div>
+        </div>
+      </div>
+      <div class="solenne-content">
+        <p class="pull-quote">Je ne suis pas une journaliste qui couvre la finance. J'en viens.</p>
+        <div class="bio">
+          <p class="dropcap">Banquière de formation, vingt ans au croisement de la <strong>banque privée</strong>, de la <strong>régulation</strong> et de l'<strong>innovation financière</strong>. UBS, Lombard Odier, puis advisory et boards — Kennet Partners, Fabric Ventures, Banque Wormser, Hokus.</p>
+          <p>En 2020, je fonde Finscale avec une conviction : les décideurs de la finance européenne méritent un espace où la <strong>technicité et l'humain coexistent</strong>. Six ans plus tard : 350 épisodes bilingues, 500 000 écoutes, et une audience que les marques ne trouvent nulle part ailleurs.</p>
+        </div>
+        <div class="credentials">
+          <div class="cred"><div class="t">LinkedIn Top Voice</div><div class="l">Finance · 2026</div></div>
+          <div class="cred"><div class="t">Top 200 Apple Podcasts</div><div class="l">France</div></div>
+          <div class="cred"><div class="t">Luxembourg · Paris</div><div class="l">Genève</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== NEWSLETTER ============== -->
+<section class="section newsletter" id="newsletter">
+  <div class="container">
+    <div class="section-num"><strong>IV.</strong> Newsletter — Chaque dimanche matin</div>
+    <div class="section-head" style="border-bottom:0;padding-bottom:0;margin-bottom:64px">
+      <div class="head-l">
+        <h2>L'essentiel de la semaine<br/>livré <em>en huit minutes</em>.</h2>
+      </div>
+    </div>
+    <div class="nl-grid">
+      <div class="nl-l">
+        <p>Une newsletter sobre, dense, sans bruit. Lue en silence dans les bureaux des fonds, banques et family offices européens. Chaque dimanche matin, sans exception.</p>
+        <div class="nl-stats">
+          <div class="item"><div class="v">1 000<sup>+</sup></div><div class="l">Abonnés</div></div>
+          <div class="item"><div class="v">45<sup>%</sup></div><div class="l">Open rate</div></div>
+          <div class="item"><div class="v">52</div><div class="l">Éditions / an</div></div>
+        </div>
+      </div>
+      <div class="nl-card">
+        <div class="nl-card-head">
+          <span class="l">La Newsletter Finscale</span>
+          <span class="badge-week">N° 312</span>
+        </div>
+        <iframe class="nl-iframe" src="https://finscale.substack.com/embed" title="Newsletter Finscale Substack"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PARTENARIATS ============== -->
+<section class="section on-paper" id="partenariats">
+  <div class="container">
+    <div class="section-num"><strong>V.</strong> Partenariats — Quatre formats</div>
+    <div class="section-head" style="align-items:start">
+      <div class="head-l">
+        <h2>S'<em>associer</em> à une ligne éditoriale<br/>que cette audience <span class="red">respecte</span>.</h2>
+      </div>
+    </div>
+    <p class="partners-intro">« Vous ne pouvez pas acheter cette audience ailleurs. Elle n'existe pas sous cette forme. Les marques qui travaillent avec Finscale ne font pas de la publicité — elles s'associent à <em>une ligne éditoriale</em> que cette audience respecte. »</p>
+    <div class="formats">
+      <div class="format">
+        <div class="fnum">Format · 01</div>
+        <h4>Branded Episode.</h4>
+        <p>Votre narrative portée dans une conversation de fond. 30 à 60 minutes. Distribution complète podcast + YouTube + newsletter.</p>
+      </div>
+      <div class="format">
+        <div class="fnum">Format · 02</div>
+        <h4>Sponsor Pre-Roll.</h4>
+        <p>Présence continue sur l'ensemble du catalogue, 1 à 3 mois, adaptée par langue.</p>
+      </div>
+      <div class="format">
+        <div class="fnum">Format · 03</div>
+        <h4>Private Talks.</h4>
+        <p>10 à 12 décideurs seniors, invitation seulement. Un seul sponsor par événement. Paris ou Luxembourg.</p>
+      </div>
+      <div class="format">
+        <div class="fnum">Format · 04</div>
+        <h4>Formats sur mesure.</h4>
+        <p>Synthèses exclusives, éditoriaux de marque, packages annuels. Sur devis, en conversation directe.</p>
+      </div>
+    </div>
+    <div class="partners-cta">
+      <a class="btn btn-primary" href="mailto:team@finscale.business?subject=Partenariat%20Finscale">Discutons de votre présence <span class="arrow">→</span></a>
+      <a class="btn-link" href="mailto:team@finscale.business?subject=Media%20Kit%20Finscale">Télécharger le media kit</a>
+      <span class="label-muted" style="margin-left:auto">team@finscale.business</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LOGO BAND ============== -->
+<section class="logo-band" aria-label="Ils nous ont fait confiance">
+  <div class="container">
+    <div class="logo-band-head">Ils nous ont fait confiance</div>
+    <div class="logo-band-inner">
+      <div class="logo-cell">EY</div>
+      <div class="logo-cell">Samsung</div>
+      <div class="logo-cell">Revolut</div>
+      <div class="logo-cell">La Banque Postale</div>
+      <div class="logo-cell">Supervizor</div>
+      <div class="logo-cell">LuxHub</div>
+      <div class="logo-cell">October</div>
+      <div class="logo-cell">Pennylane</div>
+      <div class="logo-cell">6 Monks</div>
+      <div class="logo-cell">Kennet Partners</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="flogo"><img src="assets/finscale-logo.png" alt="Finscale" /></div>
+        <h3>La voix <em>de la finance européenne.</em></h3>
+        <p>Podcast & newsletter — bilingue FR / EN. Édité par Gokyo Sàrl-S, Luxembourg.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Écouter</h4>
+        <a href="https://open.spotify.com/show/4W6JPoEMfHp3v7V03OBdYt" target="_blank" rel="noopener">Spotify FR</a>
+        <a href="https://open.spotify.com/show/0EwQH3Nnq8J9e56krYkwgv" target="_blank" rel="noopener">Spotify EN</a>
+        <a href="https://open.spotify.com/show/3pwB3Omovn8b1tzS9qP3qP" target="_blank" rel="noopener">From Within</a>
+        <a href="https://www.youtube.com/@finscale" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="foot-col">
+        <h4>Lire</h4>
+        <a href="https://finscale.substack.com" target="_blank" rel="noopener">Newsletter</a>
+        <a href="#solenne">À propos</a>
+        <a href="mailto:team@finscale.business">Media kit</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:team@finscale.business">team@finscale.business</a>
+        <a href="#partenariats">Partenariats</a>
+        <a href="https://www.linkedin.com/company/finscalepro/posts/?feedView=all" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/finscalebusiness/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="copy">© 2026 Finscale.media — Gokyo Sàrl-S, Luxembourg. Tous droits réservés.</div>
+      <div class="legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== COOKIE BANNER ============== -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-label="Consentement cookies">
+  <div class="cookie-icon">F</div>
+  <div class="cookie-body">
+    <div class="cookie-title">Cookies & confidentialité</div>
+    <div class="cookie-text">Nous utilisons des cookies pour mesurer l'audience et améliorer votre expérience. Voir notre <a href="#privacy">politique de confidentialité</a>.</div>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn" id="cookieRefuse">Refuser</button>
+    <button class="cookie-btn primary" id="cookieAccept">Accepter</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('menu').classList.remove('open');
+  }));
+  // Reading progress bar
+  const pb = document.getElementById('progressBar');
+  if (pb) {
+    const update = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / Math.max(1, (h.scrollHeight - h.clientHeight));
+      pb.style.width = (Math.min(1, Math.max(0, scrolled)) * 100) + '%';
+    };
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  }
+  // Cookie banner
+  (function(){
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    if (!localStorage.getItem('finscale-cookies')){
+      setTimeout(()=>banner.classList.add('show'), 800);
+    }
+    const close = (val) => {
+      localStorage.setItem('finscale-cookies', val);
+      banner.classList.remove('show');
+    };
+    document.getElementById('cookieAccept').addEventListener('click', ()=>close('accepted'));
+    document.getElementById('cookieRefuse').addEventListener('click', ()=>close('refused'));
+  })();
+</script>
+</body>
+</html>
