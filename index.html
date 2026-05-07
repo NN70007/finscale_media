@@ -32,6 +32,8 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  html{scroll-behavior:smooth}
+  section[id],div[id]{scroll-margin-top:120px}
   body{font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;font-weight:400}
   ::selection{background:var(--red);color:#fff}
   h1,h2,h3,h4{margin:0;font-family:'IBM Plex Serif',Georgia,serif;font-weight:600;letter-spacing:-0.015em}
@@ -108,8 +110,8 @@
   /* ============ HERO ============ */
   .hero{position:relative;background:var(--cream);color:var(--ink);padding:0;overflow:hidden;min-height:720px;display:flex;align-items:flex-end;border-bottom:var(--hairline)}
   .hero-bg{position:absolute;inset:0;z-index:0}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.18;filter:saturate(0.7)}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,248,243,0.95) 0%,rgba(251,248,243,0.75) 50%,rgba(251,248,243,0.4) 100%)}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.55;filter:saturate(0.85) contrast(1.05)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,248,243,0.92) 0%,rgba(251,248,243,0.55) 45%,rgba(251,248,243,0.15) 100%)}
   .hero .container{position:relative;z-index:2;width:100%;padding-top:80px;padding-bottom:64px}
   .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:end}
   .hero-edition{display:inline-flex;align-items:center;gap:18px;padding:10px 20px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-3);font-weight:600}
@@ -185,7 +187,7 @@
 
   /* hero right card */
   .hero-card{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(15,15,18,0.18)}
-  .hero-card-frame{position:relative;aspect-ratio:16/10;background:#000}
+  .hero-card-frame{position:relative;aspect-ratio:16/9;background:#000}
   .hero-card-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .hero-card-body{padding:24px 26px 26px}
   .hero-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
@@ -319,9 +321,9 @@
   .fw .btn-link::after{background:var(--ink)}
   .fw .btn-link:hover{color:var(--red)}.fw .btn-link:hover::after{background:var(--red)}
   .fw-embeds{display:flex;flex-direction:column;gap:20px}
-  .fw-embed-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:16/10;background:#000}
+  .fw-embed-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:16/9;background:#000}
   .fw-embed-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .fw-spotify{width:100%;height:152px;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+  .fw-spotify{width:100%;height:152px;border:0;border-radius:12px;overflow:hidden;display:block;background:#121212}
   @media (max-width: 980px){
     .fw{padding:100px 0}
     .fw-grid{grid-template-columns:1fr;gap:56px}
@@ -695,7 +697,7 @@
         <p class="sub">Le catalogue complet Finscale FR & ENG, mis à jour chaque semaine.</p>
       </div>
       <div>
-        <iframe style="border-radius:var(--r-md);border:1px solid var(--line);width:100%;height:152px" src="https://open.spotify.com/embed/show/4W6JPoEMfHp3v7V03OBdYt?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify Finscale"></iframe>
+        <iframe style="border-radius:12px;border:0;width:100%;height:152px;background:#121212;display:block" src="https://open.spotify.com/embed/show/4W6JPoEMfHp3v7V03OBdYt?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify Finscale"></iframe>
       </div>
     </div>
   </div>
