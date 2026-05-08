@@ -92,8 +92,8 @@
     .nav-logo{justify-content:flex-start}
     .nav-logo img{height:42px}
   }
-  .menu-overlay{position:fixed;inset:0;z-index:60;background:var(--cream);transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.3,1);display:flex;flex-direction:column}
-  .menu-overlay.open{transform:translateY(0)}
+  .menu-overlay{position:fixed;inset:0;z-index:60;background:var(--cream);display:none;flex-direction:column}
+  .menu-overlay.open{display:flex}
   .menu-top{display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad-x);border-bottom:var(--hairline);height:88px}
   .menu-close{font-size:24px;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
   .menu-list{display:flex;flex-direction:column;padding:32px var(--pad-x);gap:0}
