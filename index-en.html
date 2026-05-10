@@ -233,6 +233,16 @@
   .cookie-btn.primary:hover{background:#c00033;border-color:#c00033}
   @media (max-width:720px){.cookie{left:12px;right:12px;bottom:12px;padding:18px;gap:16px}.cookie-actions{width:100%}.cookie-btn{flex:1}}
 
+  /* ============ VERBATIMS ============ */
+  .verbatims{padding:120px 0;background:var(--cream);border-bottom:var(--hairline)}
+  .vb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  @media (max-width:980px){.vb-grid{grid-template-columns:1fr;gap:24px}}
+  .vb{margin:0;padding:36px 32px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:var(--r-md);position:relative}
+  .vb blockquote{margin:0 0 24px;font-family:'IBM Plex Serif',serif;font-size:18px;line-height:1.55;color:var(--ink);font-weight:500}
+  .vb blockquote em{font-style:italic;color:var(--red)}
+  .vb figcaption{font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:0.06em;color:var(--text-2);text-transform:uppercase}
+  .vb figcaption strong{color:var(--ink);font-weight:700;letter-spacing:0.08em}
+
   /* ============ MARQUEE ============ */
   .marquee{background:var(--red);color:#fff;overflow:hidden}
   .marquee-inner{display:flex;align-items:center;height:52px}
@@ -442,15 +452,6 @@
 </head>
 <body>
 
-<!-- ============== MASTHEAD ============== -->
-<div class="masthead">
-  <div class="container masthead-inner">
-    <span><span class="dot"></span>Thursday, May 7, 2026 · Vol. VI</span>
-    <span class="masthead-mid">Finscale — The voice <em>of European finance</em></span>
-    <span class="masthead-side-r">Luxembourg · Paris · Geneva</span>
-  </div>
-</div>
-
 <!-- ============== NAV ============== -->
 <header class="nav">
   <div class="container nav-inner">
@@ -523,11 +524,6 @@
           <a class="chip" href="https://podcasts.apple.com/fr/podcast/finscale/id1510937896" target="_blank" rel="noopener"><span class="chip-dot"></span>Apple Podcasts</a>
           <a class="chip" href="https://www.youtube.com/@finscale" target="_blank" rel="noopener"><span class="chip-dot"></span>YouTube</a>
         </div>
-        <div class="hero-meta">
-          <div class="item"><div class="v">350<sup>+</sup></div><div class="l">Episodes</div></div>
-          <div class="item"><div class="v">500K<sup>+</sup></div><div class="l">Listens</div></div>
-          <div class="item"><div class="v">45<sup>%</sup></div><div class="l">Open rate</div></div>
-        </div>
         <div class="hero-byline">
           <div class="by-avatar"><img src="assets/solenne.jpg" alt="" /></div>
           <span>By <strong>Solenne Niedercorn</strong></span>
@@ -576,10 +572,10 @@
 <!-- ============== STATS ============== -->
 <section class="stats" aria-label="Finscale statistics">
   <div class="stats-grid">
-    <div class="stat"><div class="stat-num">350<sup>+</sup></div><div class="stat-label">Episodes published</div></div>
-    <div class="stat"><div class="stat-num">500K<sup>+</sup></div><div class="stat-label">Listens & views</div></div>
+    <div class="stat"><div class="stat-num">350<sup>+</sup></div><div class="stat-label">Episodes published since 2020</div></div>
+    <div class="stat"><div class="stat-num">500K<sup>+</sup></div><div class="stat-label">Cumulative listens & views</div></div>
     <div class="stat"><div class="stat-num">45<sup>%</sup></div><div class="stat-label">Newsletter open rate</div></div>
-    <div class="stat"><div class="stat-num">50<sup>%</sup></div><div class="stat-label">Senior decision-makers</div></div>
+    <div class="stat"><div class="stat-num">50<sup>%</sup></div><div class="stat-label">C-level &amp; decision-maker audience</div></div>
   </div>
 </section>
 
@@ -607,6 +603,27 @@
         </div>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- ============== VERBATIMS ============== -->
+<section class="verbatims" aria-label="Listener verbatims">
+  <div class="container">
+    <div class="section-num" style="margin-bottom:48px"><strong>✍</strong> Verbatims — What listeners say</div>
+    <div class="vb-grid">
+      <figure class="vb">
+        <blockquote>The only podcast that truly speaks <em>to finance pros</em> — without dumbing down, without posturing. Indispensable.</blockquote>
+        <figcaption><strong>Managing Director</strong> · Investment Bank, Paris</figcaption>
+      </figure>
+      <figure class="vb">
+        <blockquote>I listen to Finscale every week on my way to the office. It has become my weekly briefing on the ecosystem.</blockquote>
+        <figcaption><strong>Partner</strong> · Tier-1 VC fund, Luxembourg</figcaption>
+      </figure>
+      <figure class="vb">
+        <blockquote>A quality of guests and questions you simply won't find anywhere else in Europe.</blockquote>
+        <figcaption><strong>Head of Strategy</strong> · Asset manager, Geneva</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -663,7 +680,7 @@
           <p class="ep-guest">With Anne Lucas, founding partner of Alta. <strong>48 min.</strong></p>
           <div class="ep-byline" style="margin-top:4px"><span>By <strong>Solenne Niedercorn</strong></span><span class="sep">·</span><span>Apr 30, 2026</span></div>
           <div class="ep-foot">
-            <span class="label-muted">48 min</span>
+            <span class="label-muted">48 min · Apr 30, 2026</span>
             <a class="ep-listen" href="https://www.youtube.com/watch?v=-jKS2xDOJyQ" target="_blank" rel="noopener">Listen →</a>
           </div>
         </div>
@@ -760,8 +777,9 @@
         </div>
         <div class="credentials">
           <div class="cred"><div class="t">LinkedIn Top Voice</div><div class="l">Finance · 2026</div></div>
-          <div class="cred"><div class="t">Top 200 Apple Podcasts</div><div class="l">France</div></div>
-          <div class="cred"><div class="t">Luxembourg · Paris</div><div class="l">Geneva</div></div>
+          <div class="cred"><div class="t">Top 200 Apple Podcasts</div><div class="l">Business · France</div></div>
+          <div class="cred"><div class="t">20 years in finance</div><div class="l">UBS · Lombard Odier · Boards</div></div>
+          <div class="cred"><div class="t">Studio Luxembourg</div><div class="l">Paris · Geneva</div></div>
         </div>
       </div>
     </div>
@@ -825,7 +843,13 @@
       </div>
       <div class="format">
         <div class="fnum">Format · 04</div>
-        <h4>Custom formats.</h4>
+        <h4>Newsletter Sponsor.</h4>
+        <p>Editorial visibility in the Sunday newsletter. Read by buy-side, banks, and European family offices.</p>
+      </div>
+    
+      <div class="format">
+        <div class="fnum">Format · 05</div>
+        <h4>Custom.</h4>
         <p>Exclusive briefings, branded editorials, annual packages. On request, in direct conversation.</p>
       </div>
     </div>
