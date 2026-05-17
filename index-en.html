@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Finscale - The voice of European finance</title>
 <meta name="description" content="Finscale. Podcast & newsletter - European finance. Markets, deals, transformation, VC, FinTech, regulation. Bilingual FR / EN. From Within by Finscale: conscious leadership." />
+<link rel="canonical" href="https://finscale.media/index-en.html" />
+<link rel="alternate" hreflang="fr" href="https://finscale.media/" />
+<link rel="alternate" hreflang="en" href="https://finscale.media/index-en.html" />
+<link rel="alternate" hreflang="x-default" href="https://finscale.media/" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -466,7 +470,7 @@
       <a href="#partenariats">Partnerships</a>
     </nav>
     <a class="nav-logo" href="#top" aria-label="Finscale">
-      <img src="assets/finscale-logo.png" alt="Finscale" />
+      <img src="assets/finscale-logo.png" alt="Finscale" width="800" height="267" />
     </a>
     <div class="nav-right">
       <a href="index.html">FR / EN</a>
@@ -495,7 +499,7 @@
 <!-- ============== MOBILE MENU ============== -->
 <div class="menu-overlay" id="menu" aria-hidden="true">
   <div class="menu-top">
-    <img src="assets/finscale-logo.png" alt="Finscale" style="height:32px" />
+    <img src="assets/finscale-logo.png" alt="Finscale" width="800" height="267" style="height:32px" />
     <button class="menu-close" aria-label="Close" onclick="document.getElementById('menu').classList.remove('open')">×</button>
   </div>
   <nav class="menu-list">
@@ -510,7 +514,7 @@
 <!-- ============== HERO ============== -->
 <section class="hero" id="top">
   <div class="hero-bg">
-    <img src="assets/solenne-hero.jpg" alt="" />
+    <img src="assets/solenne-hero.jpg" alt="" fetchpriority="high" loading="eager" />
   </div>
   <div class="container">
     <div class="hero-grid">
@@ -636,7 +640,7 @@
     <div class="ep-grid">
       <article class="ep-card">
         <div class="ep-thumb">
-          <img src="https://img.youtube.com/vi/iMZi0syoko4/maxresdefault.jpg" alt="" />
+          <img src="https://img.youtube.com/vi/iMZi0syoko4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
           <div class="ep-corner"><span class="badge badge-fr">FR</span></div>
           <a class="play" href="https://www.youtube.com/watch?v=iMZi0syoko4&t=377s" target="_blank" rel="noopener" aria-label="Listen">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -655,7 +659,7 @@
       </article>
       <article class="ep-card">
         <div class="ep-thumb">
-          <img src="https://img.youtube.com/vi/hq_SDSocwU8/maxresdefault.jpg" alt="" />
+          <img src="https://img.youtube.com/vi/hq_SDSocwU8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
           <div class="ep-corner"><span class="badge badge-en">EN</span></div>
           <a class="play" href="https://www.youtube.com/watch?v=hq_SDSocwU8" target="_blank" rel="noopener" aria-label="Listen">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -674,7 +678,7 @@
       </article>
       <article class="ep-card">
         <div class="ep-thumb">
-          <img src="https://img.youtube.com/vi/9bN8cyvCEZM/maxresdefault.jpg" alt="" />
+          <img src="https://img.youtube.com/vi/9bN8cyvCEZM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
           <div class="ep-corner"><span class="badge badge-fr">FR</span></div>
           <a class="play" href="https://www.youtube.com/watch?v=9bN8cyvCEZM" target="_blank" rel="noopener" aria-label="Listen">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -871,7 +875,7 @@
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="flogo"><img src="assets/finscale-logo.png" alt="Finscale" /></div>
+        <div class="flogo"><img src="assets/finscale-logo.png" alt="Finscale" width="800" height="267" /></div>
         <h3>The voice <em>of European finance.</em></h3>
         <p>Podcast & newsletter - bilingual FR / EN. Edited by Gokyo Sàrl-S, Luxembourg.</p>
       </div>
@@ -926,10 +930,16 @@
   // Reading progress bar
   const pb = document.getElementById('progressBar');
   if (pb) {
+    let ticking = false;
     const update = () => {
-      const h = document.documentElement;
-      const scrolled = h.scrollTop / Math.max(1, (h.scrollHeight - h.clientHeight));
-      pb.style.width = (Math.min(1, Math.max(0, scrolled)) * 100) + '%';
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / Math.max(1, (h.scrollHeight - h.clientHeight));
+        pb.style.width = (Math.min(1, Math.max(0, scrolled)) * 100) + '%';
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', update, {passive:true});
     update();
