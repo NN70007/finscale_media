@@ -241,11 +241,24 @@
   .verbatims{padding:120px 0;background:var(--cream);border-bottom:var(--hairline)}
   .vb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
   @media (max-width:980px){.vb-grid{grid-template-columns:1fr;gap:24px}}
-  .vb{margin:0;padding:36px 32px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:var(--r-md);position:relative}
-  .vb blockquote{margin:0 0 24px;font-family:'IBM Plex Serif',serif;font-size:18px;line-height:1.55;color:var(--ink);font-weight:500}
+  .vb{margin:0;padding:36px 32px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:var(--r-md);position:relative;display:flex;flex-direction:column}
+  .vb blockquote{margin:0 0 28px;font-family:'IBM Plex Serif',serif;font-size:17px;line-height:1.55;color:var(--ink);font-weight:500}
+  .vb blockquote::before{content:"\201C"}
+  .vb blockquote::after{content:"\201D"}
   .vb blockquote em{font-style:italic;color:var(--red)}
-  .vb figcaption{font-family:'IBM Plex Sans',sans-serif;font-size:12px;letter-spacing:0.06em;color:var(--text-2);text-transform:uppercase}
-  .vb figcaption strong{color:var(--ink);font-weight:700;letter-spacing:0.08em}
+  .vb-person{display:flex;align-items:center;gap:15px;margin-top:auto}
+  .vb-avatar{width:58px;height:58px;border-radius:50%;border:2px solid var(--red);overflow:hidden;flex-shrink:0;padding:2px;background:#fff}
+  .vb-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:grayscale(1) contrast(1.02)}
+  .vb-who{display:flex;flex-direction:column;gap:3px}
+  .vb-who a{font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:0.01em;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .vb-who a::after{content:"in";font-family:'IBM Plex Sans',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.02em;background:#0A66C2;color:#fff;width:15px;height:15px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center}
+  .vb-who a:hover{color:var(--red)}
+  .vb-who .role{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--text-2);line-height:1.4;max-width:30ch}
+  .vb-nav{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px}
+  .vb-arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:18px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .2s}
+  .vb-arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .vb-hint{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3)}
+  @media (max-width:980px){.vb-hint{display:none}}
 
   /* ============ MARQUEE ============ */
   .marquee{background:var(--red);color:#fff;overflow:hidden}
@@ -609,19 +622,112 @@
 <section class="verbatims" aria-label="Verbatims auditeurs">
   <div class="container">
     <div class="section-num" style="margin-bottom:48px"><strong>✍</strong> Verbatims - Ce que disent ses auditeurs</div>
-    <div class="vb-grid">
-      <figure class="vb">
-        <blockquote>Le seul podcast qui parle vraiment <em>aux pros</em> de la finance - sans simplifier, sans poséologie. Indispensable.</blockquote>
-        <figcaption><strong>Managing Director</strong> · Banque d'investissement, Paris</figcaption>
+    <div class="vb-grid" id="vbGrid">
+      <figure class="vb" data-vb>
+        <blockquote>Ce que j'aime chez Finscale, c'est <em>la qualité des questions</em> et le niveau des invités. On sent que les sujets sont travaillés et les conversations vont au fond.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-jean.jpg" alt="Jean de La Rochebrochard" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/jeandlr/" target="_blank" rel="noopener"><strong>Jean de La Rochebrochard</strong></a>
+            <span class="role">Managing Partner, Kima Ventures</span>
+          </span>
+        </div>
       </figure>
-      <figure class="vb">
-        <blockquote>J'écoute Finscale chaque semaine en allant au bureau. C'est devenu une véritable <em>source d'inspiration</em>.</blockquote>
-        <figcaption><strong>Partner</strong> · Fonds VC tier 1, Luxembourg</figcaption>
+      <figure class="vb" data-vb>
+        <blockquote>Fintech built the foundations of European technology. AI is now <em>rebuilding the institutions</em> themselves. Finscale is collecting the audience for that moment - and getting there early.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-george.jpg" alt="George Robson" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/georgerobson/" target="_blank" rel="noopener"><strong>George Robson</strong></a>
+            <span class="role">Partner, Sequoia Capital</span>
+          </span>
+        </div>
       </figure>
-      <figure class="vb">
-        <blockquote>Une qualité d'invités et de questions qu'on ne trouve <em>nulle part ailleurs</em> en Europe.</blockquote>
-        <figcaption><strong>Head of Strategy</strong> · Asset manager, Genève</figcaption>
+      <figure class="vb" data-vb>
+        <blockquote>Finscale, c'est l'endroit où la finance se raconte <em>telle qu'elle est</em>, pas telle qu'on voudrait la présenter.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-francois.jpg" alt="François Pauly" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/fran%C3%A7ois-pauly-3371978/" target="_blank" rel="noopener"><strong>François Pauly</strong></a>
+            <span class="role">Président du Conseil de Surveillance, IOR (Banque du Vatican) · ancien CEO, Edmond de Rothschild</span>
+          </span>
+        </div>
       </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Ce que Solenne construit avec Finscale, c'est une plateforme qui traite l'industrie financière <em>avec sérieux</em> sans en faire un sujet réservé aux initiés. C'est utile et c'est bien fait.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-vacheron.jpg" alt="Pierre-Antoine Vacheron" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/pierreantoinevacheron/" target="_blank" rel="noopener"><strong>Pierre-Antoine Vacheron</strong></a>
+            <span class="role">CEO, Worldline</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Pour anticiper les évolutions bancaires, Finscale offre <em>la clarté et l'expertise</em> dont les décideurs ont besoin.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-jeandaniel.jpg" alt="Jean-Daniel Guyot" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/jeandanielguyot/" target="_blank" rel="noopener"><strong>Jean-Daniel Guyot</strong></a>
+            <span class="role">CEO & co-fondateur, Memo Bank</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Solenne sait créer <em>un espace où on peut être honnête</em>. C'est ce qui fait la qualité de Finscale et ce qui parfois manque ailleurs.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-annesophie.jpg" alt="Anne-Sophie Eyméoud" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/anne-sophie-eym%C3%A9oud-0a70b78/" target="_blank" rel="noopener"><strong>Anne-Sophie Eyméoud</strong></a>
+            <span class="role">Partner @ Rothschild & Co</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Finscale est un lieu rare où on peut discuter <em>en liberté et en sécurité</em> de la finance, se poser les bonnes questions et chercher ensemble les réponses.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-bertrand.jpg" alt="Bertrand Badré" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/bertrand-badr%C3%A9-90000446/" target="_blank" rel="noopener"><strong>Bertrand Badré</strong></a>
+            <span class="role">Fondateur & CEO, Blue Like an Orange · ancien CFO de la Banque Mondiale</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Solenne a construit quelque chose de rare : un média de niche avec <em>une vraie ligne éditoriale</em> et une audience qui lui ressemble. Le genre de projet qui tient parce qu'il vient de quelque chose de vrai.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-catherine.jpg" alt="Catherine Barba" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/envischool/" target="_blank" rel="noopener"><strong>Catherine Barba</strong></a>
+            <span class="role">Co-fondatrice & Présidente, Envi</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Ce que j'apprécie sur Finscale, c'est qu'on a pu <em>aller au fond des choses</em>. Pas de langue de bois, pas de surface. C'est rare dans notre milieu.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-quentin.jpg" alt="Quentin Nickmans" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/quentinnickmans/" target="_blank" rel="noopener"><strong>Quentin Nickmans</strong></a>
+            <span class="role">Fondateur, Hexa</span>
+          </span>
+        </div>
+      </figure>
+      <figure class="vb" data-vb>
+        <blockquote>Finscale a construit un espace où les décideurs européens de la finance <em>parlent vraiment</em> - de ce qui se construit, de ce qui résiste, et de ce qui compte. J'en suis un auditeur régulier.</blockquote>
+        <div class="vb-person">
+          <span class="vb-avatar"><img src="assets/vb-godard.png" alt="Alain Godard" loading="lazy" decoding="async" width="120" height="120" /></span>
+          <span class="vb-who">
+            <a href="https://www.linkedin.com/in/alain-godard-b8bb2915/" target="_blank" rel="noopener"><strong>Alain Godard</strong></a>
+            <span class="role">Ancien CEO, Fonds Européen d'Investissement</span>
+          </span>
+        </div>
+      </figure>
+    </div>
+    <div class="vb-nav">
+      <button class="vb-arrow" id="vbPrev" aria-label="Précédents">←</button>
+      <span class="vb-hint">Cliquez pour découvrir d'autres témoignages</span>
+      <button class="vb-arrow" id="vbNext" aria-label="Suivants">→</button>
     </div>
   </div>
 </section>
@@ -871,9 +977,7 @@
       <div class="logo-cell">Samsung</div>
       <div class="logo-cell">Revolut</div>
       <div class="logo-cell">La Banque Postale</div>
-      <div class="logo-cell">Supervizor</div>
       <div class="logo-cell">LuxHub</div>
-      <div class="logo-cell">October</div>
       <div class="logo-cell">Pennylane</div>
       <div class="logo-cell">6 Monks</div>
       <div class="logo-cell">Fipto</div>
@@ -912,7 +1016,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <div class="copy">© 2027 Finscale.media - Gokyo Sàrl-S, Luxembourg. Tous droits réservés.</div>
+      <div class="copy">© 2026 Finscale.media - Gokyo Sàrl-S, Luxembourg. Tous droits réservés.</div>
       <div class="legal">
         <a href="#">Mentions légales</a>
         <a href="#">Confidentialité</a>
@@ -994,6 +1098,25 @@
         }
       })
       .catch(() => {});
+  })();
+
+  // Verbatims carousel
+  (function(){
+    const grid = document.getElementById('vbGrid');
+    if(!grid) return;
+    const cards = [...grid.querySelectorAll('[data-vb]')];
+    if(cards.length <= 3) return;
+    let start = 0;
+    const render = () => {
+      cards.forEach(c => c.style.display = 'none');
+      for(let k=0;k<3;k++){ cards[(start+k)%cards.length].style.display = 'flex'; }
+    };
+    const next = () => { start = (start+3)%cards.length; render(); };
+    const prev = () => { start = (start-3+cards.length*3)%cards.length; render(); };
+    document.getElementById('vbNext').addEventListener('click', next);
+    document.getElementById('vbPrev').addEventListener('click', prev);
+    cards.forEach(c => c.addEventListener('click', (e) => { if(e.target.closest('a')) return; next(); }));
+    render();
   })();
 </script>
 </body>
