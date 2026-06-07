@@ -93,9 +93,12 @@
   .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500}
   .nav-right > a:not(.nav-cta):hover{color:var(--red)}
   .nav-cta{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;background:var(--red);color:#fff;border-radius:var(--r-pill);font-size:12px;letter-spacing:0.06em;border:1px solid var(--red)}
-  .nav-cta:hover{background:var(--ink);border-color:var(--ink)}
   .nav-cta .dot{width:6px;height:6px;border-radius:50%;background:#fff}
+  .nav-cta:hover{background:var(--ink);border-color:var(--ink)}
   .nav-cta:hover .dot{background:var(--red)}
+  .nav-cta-dark{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;background:var(--ink);color:#fff;border-radius:var(--r-pill);font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.06em;border:1px solid var(--ink);white-space:nowrap}
+  .nav-cta-dark:hover{background:var(--red);border-color:var(--red)}
+  .nav-cta-dark .dot{width:6px;height:6px;border-radius:50%;background:#fff}
   .nav-burger{display:none;width:42px;height:42px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
   .nav-burger span,.nav-burger span::before,.nav-burger span::after{display:block;width:14px;height:1.5px;background:var(--ink);border-radius:2px}
   .nav-burger span{position:relative}
@@ -105,16 +108,20 @@
     .nav-left{gap:20px;font-size:12px}
   }
   @media (max-width:1080px){
-    .nav-inner{grid-template-columns:auto 1fr auto;height:88px}
+    .nav-inner{grid-template-columns:auto 1fr auto;min-height:88px}
     .nav-left{display:none}
-    .nav-right > a:not(.nav-cta){display:none}
+    .nav-right > a:not(.nav-cta):not(.nav-cta-dark){display:none}
     .nav-burger{display:flex}
     .nav-logo{justify-content:flex-start}
     .nav-logo img{height:42px}
   }
+  @media (max-width:640px){
+    .nav-cta,.nav-cta-dark{display:none}
+  }
   .menu-overlay{position:fixed;inset:0;z-index:60;background:var(--cream);display:none;flex-direction:column}
   .menu-overlay.open{display:flex}
   .menu-top{display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad-x);border-bottom:var(--hairline);height:88px}
+  .menu-top img{height:32px;width:auto}
   .menu-close{font-size:24px;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff}
   .menu-list{display:flex;flex-direction:column;padding:32px var(--pad-x);gap:0}
   .menu-list a{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(32px,7vw,52px);letter-spacing:-0.02em;padding:20px 0;border-bottom:var(--hairline);display:flex;align-items:center;justify-content:space-between}
@@ -513,6 +520,7 @@
     </a>
     <div class="nav-right">
       <a href="index-en.html">FR / EN</a>
+      <a class="nav-cta-dark" href="https://finscale.business" target="_blank" rel="noopener"><span class="dot"></span>Advisory Solenne</a>
       <a class="nav-cta" href="#partenariats"><span class="dot"></span>Partenariats</a>
       <button class="nav-burger" aria-label="Menu" onclick="document.getElementById('menu').classList.add('open')"><span></span></button>
     </div>
@@ -538,7 +546,7 @@
 <!-- ============== MOBILE MENU ============== -->
 <div class="menu-overlay" id="menu" aria-hidden="true">
   <div class="menu-top">
-    <img src="assets/finscale-logo.png" alt="Finscale" width="800" height="267" style="height:32px" />
+    <img src="assets/finscale-logo.png" alt="Finscale" width="800" height="267" style="height:32px;width:auto" />
     <button class="menu-close" aria-label="Fermer" onclick="document.getElementById('menu').classList.remove('open')">×</button>
   </div>
   <nav class="menu-list">
