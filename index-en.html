@@ -462,7 +462,7 @@
   .logo-band-head{text-align:center;margin-bottom:40px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;justify-content:center;gap:18px}
   .logo-band-head::before,.logo-band-head::after{content:"";width:40px;height:1px;background:var(--text-3);opacity:0.5}
   .logo-band-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1040px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
-  .logo-cell{padding:28px 18px;border-right:var(--hairline);border-bottom:var(--hairline);text-align:center;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;font-style:normal;letter-spacing:0.04em;text-transform:uppercase;letter-spacing:-0.005em;color:var(--ink);transition:background .25s}
+  .logo-cell{padding:28px 18px;border-right:var(--hairline);border-bottom:var(--hairline);text-align:center;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;font-style:normal;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);transition:background .25s;display:flex;align-items:center;justify-content:center;min-height:84px}
   .logo-cell:hover{background:var(--cream);color:var(--red)}
   .logo-cell:nth-child(4n){border-right:0}
   .logo-cell:nth-last-child(-n+4){border-bottom:0}
@@ -988,7 +988,7 @@
     </div>
     <div class="partners-cta">
       <a class="btn btn-primary" href="mailto:team@finscale.business?subject=Finscale%20Partnership">Let's discuss your presence <span class="arrow">→</span></a>
-      <a class="btn-link" href="mailto:team@finscale.business?subject=Finscale%20Media%20Kit">Download the media kit</a>
+      <a class="btn-link" href="assets/media-kit-finscale-fr.pdf" download target="_blank" rel="noopener">Download the media kit</a>
       <span class="label-muted" style="margin-left:auto">team@finscale.business</span>
     </div>
   </div>
@@ -1031,7 +1031,7 @@
         <h4>Read</h4>
         <a href="https://finscale.substack.com" target="_blank" rel="noopener">Newsletter</a>
         <a href="#solenne">About</a>
-        <a href="mailto:team@finscale.business">Media kit</a>
+        <a href="assets/media-kit-finscale-fr.pdf" download target="_blank" rel="noopener">Media kit</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
@@ -1126,6 +1126,16 @@
       .catch(() => {});
   })();
 
+  // Logo carousel
+  (function(){
+    const track = document.getElementById('logoTrack');
+    if(!track) return;
+    const slides = track.querySelectorAll('.logo-slide');
+    let i = 0;
+    const go = () => { track.style.transform = 'translateX(' + (-i*100) + '%)'; };
+    document.getElementById('logoNext').addEventListener('click', () => { i = (i+1)%slides.length; go(); });
+    document.getElementById('logoPrev').addEventListener('click', () => { i = (i-1+slides.length)%slides.length; go(); });
+  })();
   // Verbatims carousel
   (function(){
     const grid = document.getElementById('vbGrid');
